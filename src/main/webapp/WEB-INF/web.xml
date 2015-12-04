@@ -6,7 +6,7 @@
          xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	     http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         id="wildfly-web" version="3.0" metadata-complete="false">
+         id="wildfly-web" version="3.0">
 
     <display-name>Hackaton Web Application</display-name>
 
