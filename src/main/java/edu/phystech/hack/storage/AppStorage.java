@@ -35,11 +35,11 @@ public class AppStorage {
         return new ConcurrentHashMap<>(userStorage);
     }
 
-    public void addEventStorage(Events event) {
+    public void addToEventStorage(Events event) {
         eventStorage.put(event.getEventId(), event);
     }
 
-    public void addCommentStorage(Comments comment) {
+    public void addToCommentStorage(Comments comment) {
         List<Comments> commentsList = commentStorage.get(comment.getEventId());
         if (commentsList == null) {
             commentsList = new LinkedList<>();
@@ -48,7 +48,7 @@ public class AppStorage {
         commentsList.add(comment);
     }
 
-    public void addUserStorage(Users user) {
+    public void addToUserStorage(Users user) {
         userStorage.put(user.getLogin(), user);
     }
 

@@ -16,28 +16,22 @@ public class ManageComments {
 
     private Comments comment = new Comments();
 
-    public void addComment() {
+    public String addComment() {
         if (comment.getEventId() != 0) {
-            AppStorage.INSTANCE.addCommentStorage(copyComment(comment));
+            AppStorage.INSTANCE.addToCommentStorage(copyComment(comment));
         }
+        return "";
     }
 
-    public void deleteComment() {
-        List<Comments> commentsList = AppStorage.INSTANCE.getCommentStorageCopy().get(comment.getEventId());
-        if (commentsList == null) {
-            throw new IllegalArgumentException("No comments found for evenId: " + comment.getEventId());
+    public String deleteComment() {
+        if (comment.getCommentId() != 0 && comment.getEventId() != 0) {
+            AppStorage.INSTANCE.removeComment(comment);
         }
-        int size = commentsList.size();
-        for (Comments com : commentsList) {
-            if (com.getCommentId() == comment.getCommentId()) {
-                AppStorage.INSTANCE.removeComment(com);
-                break;
-            }
-        }
+        return "";
     }
 
     public void modifyComment() {
-            
+
     }
 
     private Comments copyComment(Comments origin) {
