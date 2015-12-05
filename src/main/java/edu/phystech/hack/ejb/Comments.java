@@ -1,6 +1,6 @@
 package edu.phystech.hack.ejb;
 
-import java.sql.Timestamp;
+import java.util.GregorianCalendar;
 
 public class Comments {
 
@@ -8,7 +8,7 @@ public class Comments {
     private int eventId;
     private String login;
     private String description;
-    private Timestamp date;
+    private GregorianCalendar date;
 
     public int getCommentId() {
         return commentId;
@@ -40,14 +40,32 @@ public class Comments {
 
     public void setDescription(String description) {
         this.description = description;
+
     }
 
-    public Timestamp getDate() {
+    public GregorianCalendar getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(GregorianCalendar date) {
         this.date = date;
+
     }
+
+    @Override
+    public boolean equals(Object other){
+        if (!(other instanceof Comments))return false;
+        if (other == this) return true;
+        Comments otherMyClass = (Comments)other;
+        if(this.commentId == otherMyClass.getCommentId()) return true;
+        else return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return commentId;
+    }
+
+
 
 }

@@ -67,4 +67,18 @@ public class Users {
         this.language = language;
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof Users)) return false;
+        if (other == this) return true;
+        Users otherMyClass = (Users) other;
+        if (this.id == otherMyClass.getId()) return true;
+        else return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
 }
