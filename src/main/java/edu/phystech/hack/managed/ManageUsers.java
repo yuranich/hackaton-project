@@ -28,4 +28,8 @@ public class ManageUsers {
     public void removeUser() {
 
     }
+
+    public String getCurrentUserLogin() {
+        return "qu";
+    }
 }

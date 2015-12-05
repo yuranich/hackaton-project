@@ -35,15 +35,11 @@ public class AppStorage {
         return new ConcurrentHashMap<>(userStorage);
     }
 
-    public void updateEventStorage(Events event) {
+    public void addEventStorage(Events event) {
         eventStorage.put(event.getEventId(), event);
     }
 
-    public void updateEventStorage(Map<Integer, Events> events) {
-        eventStorage.putAll(events);
-    }
-
-    public void updateCommentStorage(Comments comment) {
+    public void addCommentStorage(Comments comment) {
         List<Comments> commentsList = commentStorage.get(comment.getEventId());
         if (commentsList == null) {
             commentsList = new LinkedList<>();
@@ -52,15 +48,22 @@ public class AppStorage {
         commentsList.add(comment);
     }
 
-    public void updateCommentStorage(Map<Integer, List<Comments>> comments) {
-        commentStorage.putAll(comments);
-    }
-
-    public void updateUserStorage(Users user) {
+    public void addUserStorage(Users user) {
         userStorage.put(user.getLogin(), user);
     }
 
-    public void updateUserStorage(Map<String, Users> users) {
-        userStorage.putAll(users);
+    public void removeEvent(Events events) {
+        eventStorage.remove(events.getEventId());
+    }
+
+    public void removeComment(Comments comment) {
+        List<Comments> commentsList = commentStorage.get(comment.getEventId());
+        if (commentsList != null) {
+            commentsList.remove(comment);
+        }
+    }
+
+    public void removeUser(Users user) {
+        userStorage.remove(user.getLogin());
     }
 }
