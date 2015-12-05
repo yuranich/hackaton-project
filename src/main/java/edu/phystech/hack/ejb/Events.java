@@ -43,6 +43,7 @@ public class Events {
         return date;
     }
 
+    //todo parse from string
     public void setDate(GregorianCalendar date) {
         this.date = date;
     }
