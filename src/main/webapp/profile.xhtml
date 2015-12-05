@@ -11,43 +11,45 @@
 
         <div class="navbar-collapse collapse">
             <a href="profile.xhtml" class="navbar-text"> Profile </a>
-            <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myRequest">Create request</a>
+            <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myRequest">Create event</a>
+            <a href="my_events.xhtml"  class="navbar-text" data-toggle="modal" data-target="#myRequest">My events</a>
             <a href="home.xhtml" class="navbar-text"> Search people</a>
             <div class="navbar-default navbar-right">
                 <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myLogOut">Log out</a>
             </div>
         </div>
     </nav>
-    <div class="col-md-12">
-        <div class = "row">
-            <div class="col-md-2">
-                <img src="" alt="profile_image"> </img>
+    <div class="container">
+        <div class="col-md-12">
+            <div class = "row">
+                <div class="col-md-3">
+                    <img src="default_profile.png" alt="profile_image"> </img>
+                </div>
+                <div class="col-md-6">
+                    <h4>First Name</h4>
+                    <h4>Second Name</h4>
+                    <h4>Home Country</h4>
+                    <h4>Home City</h4>
+                    <h4>Age</h4>
+                    <h4>Languages</h4>
+                    <h4>Interests</h4>
+                </div>
             </div>
-            <div class="col-md-6">
-                <h4>First Name</h4>
-                <h4>Second Name</h4>
-                <h4>Home Country</h4>
-                <h4>Home City</h4>
-                <h4>Age</h4>
-                <h4>Languages</h4>
-                <h4>Interests</h4>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-2">
-                <button style="width: 150px" type="button" class="btn btn-default" data-toggle="modal" data-target="#editProfile">Edit profile</button>
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-md-2">
+                    <button style="width: 150px" type="button" class="btn btn-default" data-toggle="modal" data-target="#editProfile">Edit profile</button>
+                </div>
             </div>
-        </div>
-        <div class = "row">
-            <div class="col-md-2">
-                <button style="width: 150px" type="button" class="btn btn-default">Edit photo</button>
+            <div class = "row" style="margin-top: 20px;">
+                <div class="col-md-2">
+                    <button style="width: 150px" type="button" class="btn btn-default">Edit photo</button>
+                </div>
             </div>
-        </div>
 
 
+        </div>
     </div>
-
     <!-- Edit profile-->
     <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
         <div class="modal-dialog" role="document">
