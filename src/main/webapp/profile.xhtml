@@ -18,12 +18,75 @@
             </div>
         </div>
     </nav>
+    <div class="col-md-12">
+        <div class = "row">
+            <div class="col-md-2">
+                <img src="" alt="profile_image"> </img>
+            </div>
+            <div class="col-md-6">
+                <h4>First Name</h4>
+                <h4>Second Name</h4>
+                <h4>Home Country</h4>
+                <h4>Home City</h4>
+                <h4>Age</h4>
+                <h4>Languages</h4>
+                <h4>Interests</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#editProfile">Edit profile</button>
+                <button type="button" class="btn btn-default">Edit photo</button>
+            </div>
+        </div>
 
 
+    </div>
 
-
-
-
+    <!-- Edit profile-->
+    <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="mySignUpLabel">Edit profile</h4>
+                </div>
+                <div class="form-group modal-body">
+                    <label for="exampleInputPassword1">First Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
+                </div>
+                <div class="form-group modal-body">
+                    <label for="exampleInputPassword1">Second Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
+                </div>
+                <div class="form-group modal-body">
+                    <label for="exampleInputEmail1">Home Country</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Country"/>
+                </div>
+                <div class="form-group modal-body">
+                    <label for="exampleInputPassword1">Home City</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="City"/>
+                </div>
+                <div class="form-group modal-body">
+                    <label for="exampleInputPassword1">Age</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
+                </div>
+                <div class="form-group modal-body">
+                    <label for="exampleInputPassword1">Languages</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
+                </div>
+                <div class="form-group modal-body">
+                    <label for="exampleInputPassword1">Interests</label>
+                    <input type="text" class="form-control span6 input-large search-query" id="exampleInputPassword1" placeholder="Comments"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a href="#" class="btn btn-info" role="button">Submit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End edit profile-->
     <!-- Create request module-->
     <div class="modal fade" id="myRequest" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
         <div class="modal-dialog" role="document">
@@ -48,8 +111,8 @@
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
                 </div>
                 <div class="form-group modal-body">
-                    <label for="exampleInputPassword1">Comments</label>
-                    <input type="text" class="form-control span6 input-large search-query" id="exampleInputPassword1" placeholder="Comments"/>
+                    <label for="exampleInputPassword1">Description</label>
+                    <input type="text" class="form-control span6 input-large search-query" id="exampleInputPassword1" placeholder="Description"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
