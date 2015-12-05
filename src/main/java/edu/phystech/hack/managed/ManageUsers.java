@@ -19,11 +19,15 @@ public class ManageUsers {
     public String login() {
         ConcurrentHashMap<String, Users> map = AppStorage.INSTANCE.getUserStorageCopy();
         Users exist = map.get(user.getLogin());
+        if (exist == null) {
+            return "error.xhtml";
+        }
         return "";
     }
 
-    public void logout() {
-
+    public String logout() {
+        user = new Users();
+        return "";
     }
 
     public String addUser() {
@@ -32,11 +36,11 @@ public class ManageUsers {
     }
 
     public void removeUser() {
-
+        AppStorage.INSTANCE.removeUser(user);
     }
 
     public String getCurrentUserLogin() {
-        return "qu";
+        return user.getLogin();
     }
 
     public Users getUser() {
@@ -56,5 +60,9 @@ public class ManageUsers {
         copy.setCountry(user.getCountry());
         copy.setLanguage(user.getLanguage());
         return copy;
+    }
+
+    public boolean isLoggedIn() {
+        return user.getLogin() != null;
     }
 }

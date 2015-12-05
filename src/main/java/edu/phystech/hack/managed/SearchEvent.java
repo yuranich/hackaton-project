@@ -5,6 +5,7 @@ import edu.phystech.hack.storage.AppStorage;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.util.Collection;
 import java.util.GregorianCalendar;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -20,8 +21,8 @@ public class SearchEvent {
     private GregorianCalendar date;
     private String description;
 
-    public ConcurrentHashMap<Integer, Events> doSearch(){
-        ConcurrentHashMap<Integer, Events> eventBeforeSearch =AppStorage.INSTANCE.getEventStorageCopy();
+    public Collection<Events> doSearch(){
+        ConcurrentHashMap<Integer, Events> eventBeforeSearch = AppStorage.INSTANCE.getEventStorageCopy();
         ConcurrentHashMap<Integer, Events> eventAfterSearch = new ConcurrentHashMap<Integer,Events>();
         if(city != null && city.length() != 0){
             for(Map.Entry<Integer,Events> entry : eventBeforeSearch.entrySet()){
@@ -45,7 +46,7 @@ public class SearchEvent {
                 if(date.after(after) && date.before(before)) eventAfterSearch.put(entry.getKey(),entry.getValue());
             }
         }
-        return eventAfterSearch;
+        return eventAfterSearch.values();
     }
 
     public String getCity() {
