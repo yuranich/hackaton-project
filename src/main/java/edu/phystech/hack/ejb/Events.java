@@ -4,18 +4,18 @@ import java.sql.Timestamp;
 
 
 public class Events {
-    private int event_id;
+    private int eventId;
     private String login;
     private String city;
     private String description;
     private Timestamp date;
 
-    public int getEvent_id() {
-        return event_id;
+    public int getEventId() {
+        return eventId;
     }
 
-    public void setEvent_id(int event_id) {
-        this.event_id = event_id;
+    public void setEventId(int eventId) {
+        this.eventId = eventId;
     }
 
     public String getLogin() {

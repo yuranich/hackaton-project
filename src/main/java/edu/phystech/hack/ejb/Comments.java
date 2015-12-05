@@ -4,26 +4,26 @@ import java.sql.Timestamp;
 
 public class Comments {
 
-    private int comment_id;
-    private int event_id;
+    private int commentId;
+    private int eventId;
     private String login;
     private String description;
     private Timestamp date;
 
-    public int getComment_id() {
-        return comment_id;
+    public int getCommentId() {
+        return commentId;
     }
 
-    public void setComment_id(int comment_id) {
-        this.comment_id = comment_id;
+    public void setCommentId(int commentId) {
+        this.commentId = commentId;
     }
 
-    public int getEvent_id() {
-        return event_id;
+    public int getEventId() {
+        return eventId;
     }
 
-    public void setEvent_id(int event_id) {
-        this.event_id = event_id;
+    public void setEventId(int eventId) {
+        this.eventId = eventId;
     }
 
     public String getLogin() {
