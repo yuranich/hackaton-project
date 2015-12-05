@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link rel="stylesheet" href="css/bootstrap3.0.0.css"></link>
+        <script src="jquery/jquery-2.1.4.min.js" type="javascript"></script>
+        <script src="js/bootstrap.min.js" type="javascript"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
+    </head>
+    <body>
+        <nav class="navbar navbar-default " >
+
+            <div class="navbar-collapse collapse">
+                <a href="#" class="navbar-text">TALK_and_TRAVEL </a>
+                <div class="navbar-default navbar-right">
+                    <a href="#"  class="navbar-text" data-toggle="modal" data-target="#mySignIn">Sign in</a>
+                    <a href="#"  class="navbar-text" data-toggle="modal" data-target="#mySignUp">Sign up</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container" style="margin-top: 0px;">
+
+            <div class="input-group">
+                    <span class="input-group-btn">
+                        <input type="text" class="form-control" placeholder="Search for City..."/>
+                    </span>
+                    <span class="input-group-btn">
+                        <input type="text" class="form-control" placeholder="Input tag"/>
+                    </span>
+                    <span class="input-group-btn">
+                        <input type="date" class="form-control"/>
+                    </span>
+                    <span class="input-group-btn">
+                        <a href="result.xhtml" class="btn btn-info" role="button">Go!</a>
+                    </span>
+            </div>
+
+
+            <!-- Здесь отображать результаты -->
+
+
+
+
+        </div>
+
+
+
+        <!-- Entre -->
+        <div class="modal fade" id="mySignIn" tabindex="-1" role="dialog" aria-labelledby="mySignInLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="mySignInLabel">Sign in</h4>
+                    </div>
+                    <form action="/faces/">
+                        <div class="form-group modal-body">
+                            <label for="exampleInputEmail1">Login</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Login"/>
+                        </div>
+                        <div class="form-group modal-body">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <a href="profile.xhtml" class="btn btn-info" role="button">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="mySignUp" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="mySignUpLabel">Sign up</h4>
+                    </div>
+                    <div class="form-group modal-body">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"/>
+                    </div>
+                    <div class="form-group modal-body">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                    </div>
+                    <div class="form-group modal-body">
+                        <label for="exampleInputPassword1">Repeat password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Repeat password"/>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <a href="#" class="btn btn-info" role="button">Submit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Enter-->
+    </body>
+</html>
