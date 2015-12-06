@@ -58,7 +58,7 @@ public class ManageEvents {
                 events.add(e);
             }
         }
-        return events;
+        return new ArrayList<>(map.values());
     }
 
     public ManageUsers getUsers() {
