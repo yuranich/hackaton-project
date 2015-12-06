@@ -21,12 +21,16 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ManageEvents {
 
     @ManagedProperty(value = "#{users}")
-    private ManageUsers userManager;
+    private ManageUsers users;
 
     private Events event = new Events();
 
     public Events getEvent() {
         return event;
+    }
+
+    public void setEvent(Events event) {
+        this.event = event;
     }
 
     public String createEvent() {
@@ -44,13 +48,8 @@ public class ManageEvents {
 
     public List<Events> getEventsByCurrentUser() {
         List<Events> events = new ArrayList<>();
-        String login = userManager.getCurrentUserLogin();
+        String login = users.getCurrentUserLogin();
         if (login == null || login.isEmpty()) {
-            Events bad = new Events();
-            bad.setCity("slkdjf");
-            bad.setDescription("dslkj");
-            bad.setDate(new GregorianCalendar());
-            events.add(bad);
             return events;
         }
         ConcurrentHashMap<Integer, Events> map = AppStorage.INSTANCE.getEventStorageCopy();
@@ -60,5 +59,13 @@ public class ManageEvents {
             }
         }
         return new ArrayList<>(map.values());
+    }
+
+    public ManageUsers getUsers() {
+        return users;
+    }
+
+    public void setUsers(ManageUsers users) {
+        this.users = users;
     }
 }

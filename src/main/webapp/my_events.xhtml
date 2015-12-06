@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <head>
         <link rel="stylesheet" href="css/bootstrap.css"></link>
         <script src="jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
@@ -15,20 +17,14 @@
             <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myRequest">Create event</a>
             <a href="my_events.xhtml"  class="navbar-text">My events</a>
             <a href="home.xhtml" class="navbar-text"> Search people</a>
-            <div class="navbar-default navbar-right">
-                <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myLogOut">Log out</a>
-            </div>
+                    <div class="navbar-default navbar-right">
+                        <a href="profile.xhtml" class="navbar-text" >#{users.user.login}</a>
+                        <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myLogOut">Log out</a>
+                    </div>
+
         </div>
     </nav>
     <!-- End of HEAD-->
-
-
-
-
-
-
-
-
 
     <!-- Create request module-->
     <div class="modal fade" id="myRequest" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
@@ -85,12 +81,46 @@
     </div>
     <!-- End of Log out module-->
 
-    <p>login #{users.user.login}</p>
+    <h3>My events</h3>
     <h:form>
-        <h:dataTable value="#{events.eventsByCurrentUser}" var="item" rows="5">
-            <h:column>#{item.description}</h:column>
-            <h:column>#{item.city}</h:column>
+        <h:dataTable value="#{events.eventsByCurrentUser}" var="item">
+            <h:column>Walt in #{item.city}
+                <thead>
+                <tr>
+                    <th scope="col">Walk in #{item.country}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>#{item.city} #{item.description}</td>
+                </tr>
+                </tbody>
+            </h:column>
         </h:dataTable>
+        <p>ui items next</p>
+        <ui:repeat value="#{events.eventsByCurrentUser}" var="item">
+            #{item.city}<br/>
+        </ui:repeat>
+    </h:form>
+
+    <h:form>
+        <div class="modal fade" id="myLogOut" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="mySignUpLabel">Log out</h4>
+                    </div>
+                    <div>
+                        <p style="margin-left: 10px; margin-top: 10px">Are you sure to log out?</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <h:commandButton styleClass="btn btn-default" style="background-color: #2aabd2; color: white" value="Yes" action="#{users.logout()}"></h:commandButton>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </h:form>
 
 
