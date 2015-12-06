@@ -1,8 +1,10 @@
 package edu.phystech.hack.managed;
 
 import edu.phystech.hack.ejb.Users;
+import edu.phystech.hack.helper.IdHepler;
 import edu.phystech.hack.storage.AppStorage;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.util.concurrent.ConcurrentHashMap;
@@ -15,6 +17,14 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ManageUsers {
 
     private Users user = new Users();
+
+    @PostConstruct
+    public void init () {
+        Users u = new Users();
+        u.setLogin("admin");
+        u.setPassword("admin");
+        AppStorage.INSTANCE.getUserStorageCopy().put("admin",u);
+    }
 
     public String login() {
         ConcurrentHashMap<String, Users> map = AppStorage.INSTANCE.getUserStorageCopy();

@@ -3,6 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+
       xmlns:f="http://xmlns.jcp.org/jsf/core"
 >
     <head>
@@ -34,39 +36,41 @@
     <!-- End of HEAD-->
 
     <!-- Create request module-->
-    <div class="modal fade" id="myRequest" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="mySignUpLabel">Create request</h4>
-                </div>
-                <div class="form-group modal-body">
-                    <label for="exampleInputEmail1">Country</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Country"/>
-                </div>
-                <div class="form-group modal-body">
-                    <label for="exampleInputPassword1">City</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="City"/>
-                </div>
-                <div class="form-group modal-body">
-                    <label for="exampleInputPassword1">Date</label>
-                    <input type="date" class="form-control" id="exampleInputPassword1"/>
-                </div>
-                <div class="form-group modal-body">
-                    <label for="exampleInputPassword1">Hotel address</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
-                </div>
-                <div class="form-group modal-body">
-                    <label for="exampleInputPassword1">Description</label>
-                    <input type="text" class="form-control span6 input-large search-query" id="exampleInputPassword1" placeholder="Description"/>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <h:commandButton  styleClass="btn btn-default" style="background-color: #2aabd2; color: white" action="#{events.createEvent}" value="Submit"></h:commandButton>
+    <h:form>
+        <div class="modal fade" id="myRequest" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="mySignUpLabel">Create request</h4>
+                    </div>
+                    <div class="form-group modal-body">
+                        <label for="exampleInputEmail1">Country</label>
+                        <input type="text" jsf:value="#{events.event.country}" class="form-control" id="exampleInputEmail1" placeholder="Country"/>
+                    </div>
+                    <div class="form-group modal-body">
+                        <label for="exampleInputPassword1">City</label>
+                        <input type="text" jsf:value="#{events.event.city}" class="form-control" id="exampleInputPassword1" placeholder="City"/>
+                    </div>
+                    <div class="form-group modal-body">
+                        <label for="exampleInputPassword1">Date</label>
+                        <input type="date"  class="form-control" id="exampleInputPassword1"/>
+                    </div>
+                    <div class="form-group modal-body">
+                        <label for="exampleInputPassword1">Hotel address</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
+                    </div>
+                    <div class="form-group modal-body">
+                        <label for="exampleInputPassword1">Description</label>
+                        <input type="text" jsf:value="#{events.event.description}" class="form-control span6 input-large search-query" id="exampleInputPassword1" placeholder="Description"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <h:commandButton styleClass="btn btn-default" style="background-color: #2aabd2; color: white" action="#{events.createEvent}" value="Submit"></h:commandButton>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </h:form>
     <!-- End of create request-->
     <!-- Log out module-->
     <div class="modal fade" id="myLogOut" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
