@@ -136,16 +136,16 @@
 
             <h:form>
                 <div class="input-group">
-                    <span class="input-group-btn">
+                    <span class="input-group-btn" style="width: 50%">
                         <input type="text" jsf:value="#{searchEvent.city}" class="form-control" placeholder="Search for City..."/>
                     </span>
-                    <span class="input-group-btn">
+                    <span class="input-group-btn" style="width: 50%">
                         <input type="text" jsf:value="#{searchEvent.description}" class="form-control" placeholder="Input tag"/>
                     </span>
                     <span class="input-group-btn">
                         <input type="date"  class="form-control"/>
                     </span>
-                    <span class="input-group-btn">
+                    <span class="input-group-btn" >
                         <h:commandButton styleClass="btn btn-default" style="background-color: #2aabd2; color: white" value="Go!" action="#{searchEvent.makeSearch()}"></h:commandButton>
                     </span>
                 </div>
