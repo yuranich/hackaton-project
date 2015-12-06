@@ -94,10 +94,10 @@
     </div>
     <!-- End of Log out module-->
 
+    <p>login #{users.user.login}</p>
     <h:form>
         <h:dataTable value="#{events.eventsByCurrentUser}" var="item" rows="5">
             <h:column>#{item.description}</h:column>
-            <h:column>#{item.date}</h:column>
             <h:column>#{item.city}</h:column>
         </h:dataTable>
     </h:form>

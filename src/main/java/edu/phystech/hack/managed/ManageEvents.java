@@ -5,9 +5,11 @@ import edu.phystech.hack.helper.IdHepler;
 import edu.phystech.hack.storage.AppStorage;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -18,7 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @SessionScoped
 public class ManageEvents {
 
-    @Inject
+    @ManagedProperty(value = "#{users}")
     private ManageUsers userManager;
 
     private Events event = new Events();
@@ -30,7 +32,7 @@ public class ManageEvents {
     public String createEvent() {
         event.setEventId(IdHepler.createEventId());
         AppStorage.INSTANCE.addToEventStorage(event);
-        return "result.xhtml";
+        return "my_events.xhtml";
     }
 
     public String removeEvent() {
@@ -44,6 +46,11 @@ public class ManageEvents {
         List<Events> events = new ArrayList<>();
         String login = userManager.getCurrentUserLogin();
         if (login == null || login.isEmpty()) {
+            Events bad = new Events();
+            bad.setCity("slkdjf");
+            bad.setDescription("dslkj");
+            bad.setDate(new GregorianCalendar());
+            events.add(bad);
             return events;
         }
         ConcurrentHashMap<Integer, Events> map = AppStorage.INSTANCE.getEventStorageCopy();
@@ -52,6 +59,6 @@ public class ManageEvents {
                 events.add(e);
             }
         }
-        return events;
+        return new ArrayList<>(map.values());
     }
 }
