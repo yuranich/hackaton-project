@@ -19,10 +19,9 @@ public class SearchEvent {
     private String city;
     private GregorianCalendar date;
     private String description;
-    private final AppStorage storage = AppStorage.INSTANCE;
 
     public ConcurrentHashMap<Integer, Events> doSearch(){
-        ConcurrentHashMap<Integer, Events> eventBeforeSearch = storage.getEventStorageCopy();
+        ConcurrentHashMap<Integer, Events> eventBeforeSearch =AppStorage.INSTANCE.getEventStorageCopy();
         ConcurrentHashMap<Integer, Events> eventAfterSearch = new ConcurrentHashMap<Integer,Events>();
         if(city != null && city.length() != 0){
             for(Map.Entry<Integer,Events> entry : eventBeforeSearch.entrySet()){

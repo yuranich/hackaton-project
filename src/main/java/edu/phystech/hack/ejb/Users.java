@@ -2,22 +2,14 @@ package edu.phystech.hack.ejb;
 
 
 public class Users {
-    private int id;
+
     private String login;
     private String password;
+    private String repeatpasswd;
     private String country;
     private String city;
     private String language;
     private int age;
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getAge() {
         return age;
@@ -25,6 +17,14 @@ public class Users {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getRepeatpasswd() {
+        return repeatpasswd;
+    }
+
+    public void setRepeatpasswd(String repeatpasswd) {
+        this.repeatpasswd = repeatpasswd;
     }
 
     public String getLogin() {
@@ -72,13 +72,13 @@ public class Users {
         if (!(other instanceof Users)) return false;
         if (other == this) return true;
         Users otherMyClass = (Users) other;
-        if (this.id == otherMyClass.getId()) return true;
+        if (otherMyClass.equals(this.login)) return true;
         else return false;
     }
 
     @Override
     public int hashCode() {
-        return id;
+        return login.hashCode();
     }
 
 }
