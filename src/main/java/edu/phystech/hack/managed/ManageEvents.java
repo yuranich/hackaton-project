@@ -77,6 +77,7 @@ public class ManageEvents {
         res.setCountry(event.getCountry());
         res.setCity(event.getCity());
         res.setDate(event.getDate());
+        res.setDate1(event.getDate1());
         res.setAddress(event.getAddress());
         res.setDescription(event.getDescription());
         return res;

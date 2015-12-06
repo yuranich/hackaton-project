@@ -32,9 +32,11 @@ public class SearchEvent {
                 if(city.equalsIgnoreCase(entry.getValue().getCity())) eventAfterSearch.put(entry.getKey(),entry.getValue());
             }
         }
-        eventBeforeSearch = new ConcurrentHashMap<Integer,Events>(eventAfterSearch);
-     /*   eventAfterSearch.clear();
-        if ( description != null && description.length() > 0 ){
+        eventBeforeSearch.clear();
+        eventBeforeSearch = AppStorage.INSTANCE.getEventStorageCopy();
+
+        if ( description != null && description.length() > 0 && !description.equals("") ){
+            eventAfterSearch.clear();
             for(Map.Entry<Integer,Events> entry : eventBeforeSearch.entrySet()){
                 if(entry.getValue().getDescription().contains(description) ) eventAfterSearch.put(entry.getKey(),entry.getValue());
             }

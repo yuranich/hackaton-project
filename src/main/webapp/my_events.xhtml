@@ -53,11 +53,11 @@
                     </div>
                     <div class="form-group modal-body">
                         <label for="exampleInputPassword1">Date</label>
-                        <input type="date"  class="form-control" id="exampleInputPassword1"/>
+                        <input type="date"  jsf:value="#{events.event.date1}" class="form-control" id="exampleInputPassword1"/>
                     </div>
                     <div class="form-group modal-body">
                         <label for="exampleInputPassword1">Hotel address</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
+                        <input type="text" jsf:value="#{events.event.address}" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
                     </div>
                     <div class="form-group modal-body">
                         <label for="exampleInputPassword1">Description</label>
@@ -108,6 +108,13 @@
                         <div class="col-md-6"><h4><h:outputText value="#{item.country}" /></h4></div>
                     </div>
                     <div class = "row">
+                        <div class="col-md-3"><h4><em>Date:</em></h4></div>
+                        <div class="col-md-6"><h4><h:outputText value="#{item.date1}" /></h4></div>
+                    </div>
+
+
+            <div class = "row">
+
                         <div class="col-md-3"><h4><em>City:</em></h4></div>
                         <div class="col-md-6"><h4><h:outputText value="#{item.city}" /></h4></div>
                     </div>
