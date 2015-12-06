@@ -89,24 +89,26 @@
     <!-- End of Log out module-->
 
     <h3>My events</h3>
-    <h:form>
-        <h:dataTable value="#{events.eventsByCurrentUser}" var="item">
-            <h:column>Walt in #{item.city}
+    <h:form style="border: #080808 solid">
+        <ui:repeat value="#{events.eventsByCurrentUser}" var="item">
+            <table>
                 <thead>
                 <tr>
-                    <th scope="col">Walk in #{item.country}</th>
+                    <td style="font-size: medium">Walk in #{item.country}</td>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>#{item.city} #{item.description}</td>
+                    <td>#{item.city}</td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                </tr>
+                <tr>
+                    <td>#{item.description}</td>
                 </tr>
                 </tbody>
-            </h:column>
-        </h:dataTable>
-        <p>ui items next</p>
-        <ui:repeat value="#{events.eventsByCurrentUser}" var="item">
-            #{item.city}<br/>
+            </table>
         </ui:repeat>
     </h:form>
 
