@@ -171,6 +171,7 @@
     </h:form>
     <!-- End of create request-->
     <!-- Log out module-->
+    <h:form>
     <div class="modal fade" id="myLogOut" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -182,12 +183,13 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+                    <h:commandButton styleClass="btn btn-default" style="background-color: #2aabd2; color: white" value="Yes" action="#{users.logout()}"></h:commandButton>>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
     </div>
+    </h:form>
     <!-- End of Log out module-->
     </body>
 </html>

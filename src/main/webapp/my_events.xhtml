@@ -95,8 +95,10 @@
     <!-- End of Log out module-->
 
     <h:form>
-        <h:dataTable value="#{bean.list}" var="item">
-            <h:column>#{item}</h:column>
+        <h:dataTable value="#{events.eventsByCurrentUser}" var="item" rows="5">
+            <h:column>#{item.description}</h:column>
+            <h:column>#{item.date}</h:column>
+            <h:column>#{item.city}</h:column>
         </h:dataTable>
     </h:form>
 
