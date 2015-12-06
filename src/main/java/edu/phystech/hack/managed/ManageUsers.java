@@ -32,7 +32,7 @@ public class ManageUsers {
 
     public String addUser() {
         AppStorage.INSTANCE.addToUserStorage(copyUsers(user));
-        return "";
+        return "profile.xhtml";
     }
 
     public void removeUser() {

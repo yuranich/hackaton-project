@@ -20,7 +20,7 @@ public class ManageComments {
         if (comment.getEventId() != 0) {
             AppStorage.INSTANCE.addToCommentStorage(copyComment(comment));
         }
-        return "";
+        return "profile.xhtml";
     }
 
     public String deleteComment() {

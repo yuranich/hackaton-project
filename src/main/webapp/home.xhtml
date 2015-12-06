@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h="http://java.sun.com/jsf/html"
 >
     <head>
         <link rel="stylesheet" href="css/bootstrap3.0.0.css"></link>
@@ -48,6 +48,7 @@
                 </div>
             </div>
         </div>
+        <h:form id="addUser">
         <div class="modal fade" id="mySignUp" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -69,11 +70,12 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <a href="#" class="btn btn-info" role="button">Submit</a>
+                        <h:commandButton  value="Submit" action="#{users.addUser()}"></h:commandButton>
                     </div>
                 </div>
             </div>
         </div>
+        </h:form>
         <!-- End of Enter-->
         <div class="container" style="width: 60%; margin-top: 0px;">
 
