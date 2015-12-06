@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h="http://java.sun.com/jsf/html"
 >
     <head>
         <link rel="stylesheet" href="css/bootstrap.css"></link>
@@ -27,16 +27,18 @@
                 <div class="col-md-3">
                     <img src="default_profile.png" alt="profile_image"> </img>
                 </div>
+                <h:form id="userProf">
                 <div class="col-md-6">
-                    <h4>Login</h4><input type="text" class="form-control" jsf:value="#{users.user.login}" id="exampleInputEmail1" placeholder="Login"/>
-                    <h4>First Name</h4>
-                    <h4>Second Name</h4>
-                    <h4>Home Country</h4>
-                    <h4>Home City</h4>
-                    <h4>Age</h4>
-                    <h4>Languages</h4>
-                    <h4>Interests</h4>
+                    <h4>Login</h4><h:outputText  value="#{users.user.login}" />
+                    <h4>First Name</h4><h:outputText value="#{users.user.firstName}"/>
+                    <h4>Second Name</h4><h:outputText value="#{users.user.lastName}" />
+                    <h4>Home Country</h4><h:outputText value="#{users.user.country}"/>
+                    <h4>Home City</h4><h:outputText  value="#{users.user.city}" />
+                    <h4>Age</h4><h:outputText  value="#{users.user.age}" />
+                    <h4>Languages</h4><h:outputText  value="#{users.user.language}" />
+                    <h4>Interests</h4><h:outputText  value="#{users.user.interests}" />
                 </div>
+                </h:form>
             </div>
 
             <div class="row" style="margin-top: 20px;">
@@ -56,6 +58,7 @@
         </div>
     </div>
     <!-- Edit profile-->
+    <h:form id="editUser">
     <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -64,39 +67,40 @@
                 </div>
                 <div class="form-group modal-body">
                     <label for="exampleInputPassword1">First Name</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
+                    <input type="text" jsf:value="#{users.user.firstName}" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
                 </div>
                 <div class="form-group modal-body">
                     <label for="exampleInputPassword1">Second Name</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
+                    <input type="text" jsf:value="#{users.user.lastName}" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
                 </div>
                 <div class="form-group modal-body">
                     <label for="exampleInputEmail1">Home Country</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Country"/>
+                    <input type="text" class="form-control" jsf:value="#{users.user.country}" id="exampleInputEmail1" placeholder="Country"/>
                 </div>
                 <div class="form-group modal-body">
                     <label for="exampleInputPassword1">Home City</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="City"/>
+                    <input type="text" class="form-control" jsf:value="#{users.user.city}" id="exampleInputPassword1" placeholder="City"/>
                 </div>
                 <div class="form-group modal-body">
                     <label for="exampleInputPassword1">Age</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
+                    <input type="text" class="form-control" id="exampleInputPassword1" jsf:value="#{users.user.age}" placeholder="Address"/>
                 </div>
                 <div class="form-group modal-body">
                     <label for="exampleInputPassword1">Languages</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
+                    <input type="text" class="form-control" jsf:value="#{users.user.language}" id="exampleInputPassword1" placeholder="Address"/>
                 </div>
                 <div class="form-group modal-body">
                     <label for="exampleInputPassword1">Interests</label>
-                    <input type="text" class="form-control span6 input-large search-query" id="exampleInputPassword1" placeholder="Comments"/>
+                    <input type="text" class="form-control span6 input-large search-query" jsf:value="#{users.user.interests}" id="exampleInputPassword1" placeholder="Comments"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <a href="#" class="btn btn-info" role="button">Submit</a>
+                    <h:commandButton value="Submit" action="#{users.addUser()}"></h:commandButton>
                 </div>
             </div>
         </div>
     </div>
+    </h:form>
     <!-- End edit profile-->
     <!-- Create request module-->
     <div class="modal fade" id="myRequest" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
