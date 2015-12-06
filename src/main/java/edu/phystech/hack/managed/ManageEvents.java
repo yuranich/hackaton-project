@@ -35,6 +35,7 @@ public class ManageEvents {
 
     public String createEvent() {
         event.setEventId(IdHepler.createEventId());
+        event.setLogin(users.getCurrentUserLogin());
         AppStorage.INSTANCE.addToEventStorage(event);
         return "my_events.xhtml";
     }
@@ -58,7 +59,7 @@ public class ManageEvents {
                 events.add(e);
             }
         }
-        return new ArrayList<>(map.values());
+        return events;
     }
 
     public ManageUsers getUsers() {
