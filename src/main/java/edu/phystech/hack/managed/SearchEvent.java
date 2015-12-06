@@ -5,9 +5,7 @@ import edu.phystech.hack.storage.AppStorage;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import java.util.Collection;
-import java.util.GregorianCalendar;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -21,7 +19,12 @@ public class SearchEvent {
     private GregorianCalendar date;
     private String description;
 
-    public Collection<Events> doSearch(){
+
+    public String makeSearch(){
+        return "result.xhtml";
+    }
+
+    public List<Events> getEventsByParams(){
         ConcurrentHashMap<Integer, Events> eventBeforeSearch = AppStorage.INSTANCE.getEventStorageCopy();
         ConcurrentHashMap<Integer, Events> eventAfterSearch = new ConcurrentHashMap<Integer,Events>();
         if(city != null && city.length() != 0){
@@ -30,15 +33,15 @@ public class SearchEvent {
             }
         }
         eventBeforeSearch = new ConcurrentHashMap<Integer,Events>(eventAfterSearch);
-
-        if ( description != null && description.length() != 0 ){
+     /*   eventAfterSearch.clear();
+        if ( description != null && description.length() > 0 ){
             for(Map.Entry<Integer,Events> entry : eventBeforeSearch.entrySet()){
                 if(entry.getValue().getDescription().contains(description) ) eventAfterSearch.put(entry.getKey(),entry.getValue());
             }
         }
         eventBeforeSearch = new ConcurrentHashMap<Integer,Events>(eventAfterSearch);
 
-        if(date != null){
+     /*   if(date != null){
             for(Map.Entry<Integer,Events> entry : eventBeforeSearch.entrySet()){
                 GregorianCalendar eventDate = entry.getValue().getDate();
                 GregorianCalendar before = new GregorianCalendar(eventDate.get(1),eventDate.get(2),eventDate.get(4)+1);
@@ -46,7 +49,7 @@ public class SearchEvent {
                 if(date.after(after) && date.before(before)) eventAfterSearch.put(entry.getKey(),entry.getValue());
             }
         }
-        return eventAfterSearch.values();
+    */    return new ArrayList<Events>(eventAfterSearch.values());
     }
 
     public String getCity() {
