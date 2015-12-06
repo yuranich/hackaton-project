@@ -17,22 +17,37 @@
 
                 <div class="navbar-collapse collapse">
                     <a href="#" class="navbar-text">TALK_and_TRAVEL </a>
-                <div class="navbar-default navbar-right">
-                    <a href="#"  class="navbar-text" data-toggle="modal" data-target="#mySignIn">Sign in</a>
-                    <a href="#"  class="navbar-text" data-toggle="modal" data-target="#mySignUp">Sign up</a>
-                </div>
+                    <h:form id="signinup" rendered="#{users.islogin()}" >
+
+                    <div class="navbar-default navbar-right" >
+                        <a href="#"  class="navbar-text" data-toggle="modal" data-target="#mySignIn">Sign in</a>
+                        <a href="#"  class="navbar-text" data-toggle="modal" data-target="#mySignUp">Sign up</a>
+                    </div>
+                    </h:form>
+                    <h:form id="userlogout" rendered="#{!users.islogin()}">
+                        <nav class="navbar navbar-default " >
+
+                            <div class="navbar-collapse collapse">
+                                <a href="#" class="navbar-text">TALK_and_TRAVEL </a>
+                                <div class="navbar-default navbar-right">
+                                    <a href="profile.xhtml" class="navbar-text" >#{users.user.login}</a>
+                                    <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myLogOut">Log out</a>
+                                </div>
+                            </div>
+                        </nav>
+                    </h:form>
                 </div>
             </nav>
 
         <!-- Entre -->
-            <h:form>
+            <h:form >
         <div class="modal fade" id="mySignIn" tabindex="-1" role="dialog" aria-labelledby="mySignInLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="mySignInLabel">Sign in</h4>
+                        <h4 style="hide: true" class="modal-title" id="mySignInLabel">Sign in</h4>
                     </div>
-                    <form action="/faces/">
+                    <h:form id="userSignIn">
                         <div class="form-group modal-body">
                             <label for="exampleInputEmail1">Login</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" jsf:value="#{users.user.login}" placeholder="Login"/>
@@ -41,11 +56,12 @@
                             <label for="exampleInputPassword1">Password</label>
                             <input type="password" class="form-control" jsf:value="#{users.user.password}" id="exampleInputPassword1" placeholder="Password"/>
                         </div>
-                    </form>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         <h:commandButton styleClass="btn btn-default" style="background-color: #2aabd2; color: white" value="Sign in" action="#{users.login()}"></h:commandButton>
                     </div>
+                    </h:form>
                 </div>
             </div>
         </div>

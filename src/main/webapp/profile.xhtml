@@ -17,6 +17,7 @@
             <a href="my_events.xhtml"  class="navbar-text">My events</a>
             <a href="home.xhtml" class="navbar-text"> Search people</a>
             <div class="navbar-default navbar-right">
+                <a href="profile.xhtml" class="navbar-text" >#{users.user.login}</a>
                 <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myLogOut">Log out</a>
             </div>
         </div>
@@ -183,7 +184,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <h:commandButton styleClass="btn btn-default" style="background-color: #2aabd2; color: white" value="Yes" action="#{users.logout()}"></h:commandButton>>
+                    <h:commandButton styleClass="btn btn-default" style="background-color: #2aabd2; color: white" value="Yes" action="#{users.logout()}"></h:commandButton>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
             </div>

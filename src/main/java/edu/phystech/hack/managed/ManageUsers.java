@@ -22,7 +22,14 @@ public class ManageUsers {
         if (exist == null) {
             return "error.xhtml";
         }
-        return "home.xhtml";
+        user.setAge(exist.getAge());
+        user.setCity(exist.getCity());
+        user.setCountry(exist.getCountry());
+        user.setFirstName(exist.getFirstName());
+        user.setLastName(exist.getLastName());
+        user.setInterests(exist.getInterests());
+        user.setLanguage(exist.getLanguage());
+        return "faces/home.xhtml";
     }
 
     public String logout() {
@@ -33,6 +40,16 @@ public class ManageUsers {
     public String addUser() {
         AppStorage.INSTANCE.addToUserStorage(copyUsers(user));
         return "profile.xhtml";
+    }
+
+    public boolean islogin(){
+
+        if(user == null || user != null &&(user.getLogin() == null || user.getLogin().length() ==0 )) return true;
+        if( user != null && user.getLogin() != null &&  user.getLogin().length() > 0 ){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     public void removeUser() {
@@ -59,6 +76,9 @@ public class ManageUsers {
         copy.setCity(user.getCity());
         copy.setCountry(user.getCountry());
         copy.setLanguage(user.getLanguage());
+        copy.setLastName(user.getLastName());
+        copy.setFirstName(user.getFirstName());
+        copy.setInterests(user.getInterests());
         return copy;
     }
 
