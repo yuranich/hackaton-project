@@ -25,36 +25,67 @@
         <div class="col-md-12">
             <div class = "row">
                 <div class="col-md-3">
-                    <img src="default_profile.png" alt="profile_image"> </img>
-                </div>
-                <h:form id="userProf">
-                <div class="col-md-6">
-                    <h4>Login</h4><h:outputText  value="#{users.user.login}" />
-                    <h4>First Name</h4><h:outputText value="#{users.user.firstName}"/>
-                    <h4>Second Name</h4><h:outputText value="#{users.user.lastName}" />
-                    <h4>Home Country</h4><h:outputText value="#{users.user.country}"/>
-                    <h4>Home City</h4><h:outputText  value="#{users.user.city}" />
-                    <h4>Age</h4><h:outputText  value="#{users.user.age}" />
-                    <h4>Languages</h4><h:outputText  value="#{users.user.language}" />
-                    <h4>Interests</h4><h:outputText  value="#{users.user.interests}" />
-                </div>
-                </h:form>
-            </div>
 
-            <div class="row" style="margin-top: 20px;">
-                <div class="col-md-2">
-                    <button style="width: 150px" type="button" class="btn btn-default" data-toggle="modal" data-target="#editProfile">Edit profile</button>
-                </div>
-            </div>
-            <div class = "row" style="margin-top: 20px;">
-                <div class="col-md-2">
+                    <h4><h:outputText value="#{users.user.firstName}" />
+                        <h:outputText value=" "/>
+                        <h:outputText value="#{users.user.lastName}" />
+                        <h:outputText value=", "/>
+                        <h:outputText value="#{users.user.age}" /></h4>
+
+                        <img src="default_profile.png" alt="profile_image"> </img>
+
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-2">
+                            <button style="width: 150px" type="button" class="btn btn-default" data-toggle="modal" data-target="#editProfile">Edit profile</button>
+                        </div>
+                    </div>
+                    <div class = "row" style="margin-top: 20px;">
+                        <div class="col-md-2">
                     <span class="btn btn-default btn-file"  style="width: 150px">
                         Edit Photo <input type="file"/>
                     </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5" style="margin-left: 2%; margin-top: 0px">
+                    Information about you:
+                    <h:form id="userProf">
+                        <div class = "row">
+                            <div class="col-md-6"><h4>Login</h4></div>
+                            <div class="col-md-6"><h4><h:outputText value="#{users.user.login}" /></h4></div>
+                        </div>
+                        <div class = "row">
+                            <div class="col-md-6"><h4>First Name</h4></div>
+                            <div class="col-md-6"><h4><h:outputText value="#{users.user.firstName}" /></h4></div>
+                        </div>
+                        <div class = "row">
+                            <div class="col-md-6"><h4>Last Name</h4></div>
+                            <div class="col-md-6"><h4><h:outputText value="#{users.user.lastName}" /></h4></div>
+                        </div>
+                        <div class = "row">
+                            <div class="col-md-6"><h4>Home Country</h4></div>
+                            <div class="col-md-6"><h4><h:outputText value="#{users.user.country}" /></h4></div>
+                        </div>
+                        <div class = "row">
+                            <div class="col-md-6"><h4>Home City</h4></div>
+                            <div class="col-md-6"><h4><h:outputText value="#{users.user.city}" /></h4></div>
+                        </div>
+                        <div class = "row">
+                            <div class="col-md-6"><h4>Age</h4></div>
+                            <div class="col-md-6"><h4><h:outputText value="#{users.user.age}" /></h4></div>
+                        </div>
+                        <div class = "row">
+                            <div class="col-md-6"><h4>Languages</h4></div>
+                            <div class="col-md-6"><h4><h:outputText value="#{users.user.language}" /></h4></div>
+                        </div>
+                        <div class = "row">
+                            <div class="col-md-6"><h4>Interests</h4></div>
+                            <div class="col-md-6"><h4><h:outputText value="#{users.user.interests}" /></h4></div>
+                        </div>
+                    </h:form>
                 </div>
             </div>
-
-
         </div>
     </div>
     <!-- Edit profile-->
