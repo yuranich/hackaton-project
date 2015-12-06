@@ -32,6 +32,14 @@ public class ManageUsers {
         return "faces/home.xhtml";
     }
 
+    public String redirect(){
+        if(user != null && user.getLogin() != null && user.getLogin().length() > 0){
+            return "";
+        }else{
+            return "home.xhtml";
+        }
+    }
+
     public String logout() {
         user = new Users();
         return "home.xhtml";
