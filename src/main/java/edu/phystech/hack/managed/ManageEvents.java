@@ -23,6 +23,10 @@ public class ManageEvents {
 
     private Events event = new Events();
 
+    public Events getEvent() {
+        return event;
+    }
+
     public String createEvent() {
         event.setEventId(IdHepler.createEventId());
         AppStorage.INSTANCE.addToEventStorage(event);

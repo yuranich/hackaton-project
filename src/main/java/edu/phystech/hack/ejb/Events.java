@@ -11,6 +11,15 @@ public class Events {
     private String country;
     private String description;
     private GregorianCalendar date;
+    private String address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public int getEventId() {
         return eventId;
