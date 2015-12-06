@@ -112,6 +112,26 @@
         </div>
         </h:form>
         <!-- End of Enter-->
+    <h:form>
+        <div class="modal fade" id="myLogOut" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="mySignUpLabel">Log out</h4>
+                    </div>
+                    <div>
+                        <p style="margin-left: 10px; margin-top: 10px">Are you sure to log out?</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <h:commandButton styleClass="btn btn-default" style="background-color: #2aabd2; color: white" value="Yes" action="#{users.logout()}"></h:commandButton>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:form>
+
         <div class="container" style="width: 60%; margin-top: 0px;">
 
             <div class="input-group" >

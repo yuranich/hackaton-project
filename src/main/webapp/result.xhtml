@@ -1,6 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+>
     <head>
         <link rel="stylesheet" href="css/bootstrap3.0.0.css"></link>
         <script src="jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
@@ -8,16 +11,35 @@
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
     </head>
     <body>
+
+    <h:form id="signinup" rendered="#{users.islogin()}" >
+
+        <nav class="navbar navbar-default " >
+
+            <div class="navbar-collapse collapse">
+                <a href="#" class="navbar-text">TALK_and_TRAVEL </a>
+
+                <div class="navbar-default navbar-right" >
+                    <a href="#"  class="navbar-text" data-toggle="modal" data-target="#mySignIn">Sign in</a>
+                    <a href="#"  class="navbar-text" data-toggle="modal" data-target="#mySignUp">Sign up</a>
+                </div>
+
+            </div>
+        </nav>
+    </h:form>
+    <h:form id="userlogout" rendered="#{!users.islogin()}">
+
         <nav class="navbar navbar-default " >
 
             <div class="navbar-collapse collapse">
                 <a href="#" class="navbar-text">TALK_and_TRAVEL </a>
                 <div class="navbar-default navbar-right">
-                    <a href="#"  class="navbar-text" data-toggle="modal" data-target="#mySignIn">Sign in</a>
-                    <a href="#"  class="navbar-text" data-toggle="modal" data-target="#mySignUp">Sign up</a>
+                    <a href="profile.xhtml" class="navbar-text" >#{users.user.login}</a>
+                    <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myLogOut">Log out</a>
                 </div>
             </div>
         </nav>
+    </h:form>
 
         <div class="container" style="margin-top: 0px;">
 
@@ -44,32 +66,55 @@
 
         </div>
 
-
-
-        <!-- Entre -->
-        <div class="modal fade" id="mySignIn" tabindex="-1" role="dialog" aria-labelledby="mySignInLabel">
+    <h:form>
+        <div class="modal fade" id="myLogOut" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="mySignInLabel">Sign in</h4>
+                        <h4 class="modal-title" id="mySignUpLabel">Log out</h4>
                     </div>
-                    <form action="/faces/">
-                        <div class="form-group modal-body">
-                            <label for="exampleInputEmail1">Login</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Login"/>
-                        </div>
-                        <div class="form-group modal-body">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
-                        </div>
-                    </form>
+                    <div>
+                        <p style="margin-left: 10px; margin-top: 10px">Are you sure to log out?</p>
+                    </div>
+
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <a href="profile.xhtml" class="btn btn-info" role="button">Sign in</a>
+                        <h:commandButton styleClass="btn btn-default" style="background-color: #2aabd2; color: white" value="Yes" action="#{users.logout()}"></h:commandButton>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
             </div>
         </div>
+    </h:form>
+
+        <!-- Entre -->
+    <h:form >
+        <div class="modal fade" id="mySignIn" tabindex="-1" role="dialog" aria-labelledby="mySignInLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 style="hide: true" class="modal-title" id="mySignInLabel">Sign in</h4>
+                    </div>
+                    <h:form id="userSignIn">
+                        <div class="form-group modal-body">
+                            <label for="exampleInputEmail1">Login</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" jsf:value="#{users.user.login}" placeholder="Login"/>
+                        </div>
+                        <div class="form-group modal-body">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" jsf:value="#{users.user.password}" id="exampleInputPassword1" placeholder="Password"/>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <h:commandButton styleClass="btn btn-default" style="background-color: #2aabd2; color: white" value="Sign in" action="#{users.login()}"></h:commandButton>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </h:form>
+
+    <h:form id="addUser">
         <div class="modal fade" id="mySignUp" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -77,25 +122,38 @@
                         <h4 class="modal-title" id="mySignUpLabel">Sign up</h4>
                     </div>
                     <div class="form-group modal-body">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"/>
+                        <label for="exampleInputEmail1">First Name</label>
+                        <input type="text" class="form-control" jsf:value="#{users.user.firstName}" id="exampleInputEmail1" placeholder="First Name"/>
+                    </div>
+                    <div class="form-group modal-body">
+                        <label for="exampleInputEmail1">Last Name</label>
+                        <input type="text" class="form-control" jsf:value="#{users.user.lastName}" id="exampleInputEmail1" placeholder="Last Name"/>
+                    </div>
+                    <div class="form-group modal-body">
+                        <label for="exampleInputEmail1">Age</label>
+                        <input type="text" class="form-control" jsf:value="#{users.user.age}" id="exampleInputEmail1" placeholder="18"/>
+                    </div>
+                    <div class="form-group modal-body">
+                        <label for="exampleInputEmail1">Login</label>
+                        <input type="text" class="form-control" jsf:value="#{users.user.login}" id="exampleInputEmail1" placeholder="Login"/>
                     </div>
                     <div class="form-group modal-body">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                        <input type="password" class="form-control" id="exampleInputPassword1" jsf:value="#{users.user.password}" placeholder="Password"/>
                     </div>
                     <div class="form-group modal-body">
                         <label for="exampleInputPassword1">Repeat password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Repeat password"/>
+                        <input type="password" class="form-control" id="exampleInputPassword1" jsf:value="#{users.user.repeatpasswd}" placeholder="Repeat password"/>
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <a href="#" class="btn btn-info" role="button">Submit</a>
+                        <h:commandButton styleClass="btn btn-default" style="background-color: #2aabd2; color: white"  value="Submit" action="#{users.addUser()}"></h:commandButton>
                     </div>
                 </div>
             </div>
         </div>
+    </h:form>
         <!-- End of Enter-->
     </body>
 </html>

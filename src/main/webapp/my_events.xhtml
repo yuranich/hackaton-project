@@ -15,29 +15,14 @@
             <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myRequest">Create event</a>
             <a href="my_events.xhtml"  class="navbar-text">My events</a>
             <a href="home.xhtml" class="navbar-text"> Search people</a>
-            <div class="navbar-default navbar-right">
-                <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myLogOut">Log out</a>
-            </div>
+                    <div class="navbar-default navbar-right">
+                        <a href="profile.xhtml" class="navbar-text" >#{users.user.login}</a>
+                        <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myLogOut">Log out</a>
+                    </div>
+
         </div>
     </nav>
     <!-- End of HEAD-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- Create request module-->
     <div class="modal fade" id="myRequest" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
@@ -100,6 +85,26 @@
             <h:column>#{item.description}</h:column>
             <h:column>#{item.city}</h:column>
         </h:dataTable>
+    </h:form>
+
+    <h:form>
+        <div class="modal fade" id="myLogOut" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="mySignUpLabel">Log out</h4>
+                    </div>
+                    <div>
+                        <p style="margin-left: 10px; margin-top: 10px">Are you sure to log out?</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <h:commandButton styleClass="btn btn-default" style="background-color: #2aabd2; color: white" value="Yes" action="#{users.logout()}"></h:commandButton>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </h:form>
 
 
