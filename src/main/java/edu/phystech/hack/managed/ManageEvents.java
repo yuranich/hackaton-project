@@ -10,7 +10,7 @@ import javax.faces.bean.SessionScoped;
 /**
  * Created by yuranich on 05.12.2015.
  */
-@ManagedBean
+@ManagedBean(name ="manageEvents")
 @SessionScoped
 public class ManageEvents {
 
@@ -19,7 +19,7 @@ public class ManageEvents {
     public String createEvent() {
         event.setEventId(IdHepler.createEventId());
         AppStorage.INSTANCE.addToEventStorage(event);
-        return "";
+        return "result.xhtml";
     }
 
     public String removeEvent() {
@@ -27,5 +27,9 @@ public class ManageEvents {
             AppStorage.INSTANCE.removeEvent(event);
         }
         return "";
+    }
+
+    public Events getEvent() {
+        return event;
     }
 }

@@ -8,6 +8,7 @@ public class Events {
     private int eventId;
     private String login;
     private String city;
+    private String country;
     private String description;
     private GregorianCalendar date;
 
@@ -17,6 +18,14 @@ public class Events {
 
     public void setEventId(int eventId) {
         this.eventId = eventId;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getLogin() {
