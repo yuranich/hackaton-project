@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Created by yuranich on 05.12.2015.
  */
-@ManagedBean
+@ManagedBean(name = "events")
 @SessionScoped
 public class ManageEvents {
 
