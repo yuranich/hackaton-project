@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link rel="stylesheet" href="css/bootstrap.css"></link>
+        <script src="jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+    <!-- HEAD -->
+    <nav class="navbar navbar-default " >
+
+        <div class="navbar-collapse collapse">
+            <a href="profile.xhtml" class="navbar-text"> Profile </a>
+            <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myRequest">Create event</a>
+            <a href="my_events.xhtml"  class="navbar-text">My events</a>
+            <a href="home.xhtml" class="navbar-text"> Search people</a>
+            <div class="navbar-default navbar-right">
+                <a href="#"  class="navbar-text" data-toggle="modal" data-target="#myLogOut">Log out</a>
+            </div>
+        </div>
+    </nav>
+    <!-- End of HEAD-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Create request module-->
+    <div class="modal fade" id="myRequest" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="mySignUpLabel">Create request</h4>
+                </div>
+                <div class="form-group modal-body">
+                    <label for="exampleInputEmail1">Country</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Country"/>
+                </div>
+                <div class="form-group modal-body">
+                    <label for="exampleInputPassword1">City</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="City"/>
+                </div>
+                <div class="form-group modal-body">
+                    <label for="exampleInputPassword1">Date</label>
+                    <input type="date" class="form-control" id="exampleInputPassword1"/>
+                </div>
+                <div class="form-group modal-body">
+                    <label for="exampleInputPassword1">Hotel address</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address"/>
+                </div>
+                <div class="form-group modal-body">
+                    <label for="exampleInputPassword1">Description</label>
+                    <input type="text" class="form-control span6 input-large search-query" id="exampleInputPassword1" placeholder="Description"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a href="#" class="btn btn-info" role="button">Submit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of create request-->
+    <!-- Log out module-->
+    <div class="modal fade" id="myLogOut" tabindex="-1" role="dialog" aria-labelledby="mySignUpLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="mySignUpLabel">Log out</h4>
+                </div>
+                <div>
+                    <p style="margin-left: 10px; margin-top: 10px">Are you sure to log out?</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Log out module-->
+    </body>
+</html>
