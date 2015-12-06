@@ -22,12 +22,12 @@ public class ManageUsers {
         if (exist == null) {
             return "error.xhtml";
         }
-        return "";
+        return "home.xhtml";
     }
 
     public String logout() {
         user = new Users();
-        return "";
+        return "home.xhtml";
     }
 
     public String addUser() {
